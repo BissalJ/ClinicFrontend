@@ -79,8 +79,7 @@ profile/
 1. **Clone the repository:**
 
    ```bash
-   git clone <repo-url>
-   cd profile
+   git clone https://github.com/BissalJ/ClinicFrontend
    ```
 
 2. **Install dependencies:**
