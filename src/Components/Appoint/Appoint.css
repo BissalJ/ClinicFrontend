@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+@import url(https://fonts.googleapis.com/css?family=Lusitana:400,700);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.appoint {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: white;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.main{
+    display: flex; /* or grid, depending on your layout needs */
+    justify-content: flex-start; /* Aligns children to the left */
+    align-items: flex-start; /* Aligns children to the top */
+  
+}
+
+.heading h2 {
+  color: #5DADE2;
+  text-align: left;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.calendar h2 {
+  color: #5DADE2;
+  text-align: left;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+
+.calendar {
+  height: 350px;
+  width: 500px;
+  background-color: #5DADE2;
+  opacity: 0.5;
+  border-radius: 10px;
+  margin-right: 100px;
+}

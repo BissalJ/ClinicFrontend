@@ -1,0 +1,104 @@
+
+.homeCanvas{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+}
+
+.homeContainer{
+    transform: translateY(-10px);
+    background-color: white;
+    border-radius: 0 0 150px 150px;
+    height: 50vh;
+    z-index: 1;
+}
+.homeSkills {
+    height: 900px;
+    background-color: white;
+    padding: 150px;
+    position: relative;
+    box-sizing: border-box;
+    perspective: 450px;
+    display: flex;
+    overflow-x: hidden;
+  }
+.servicesContainer > h3{
+    text-align: center;
+    color: black;
+    margin-bottom: 4vmax;
+    font-size: 4vmax;
+}
+
+.homeCubeSkills{
+    margin-top: 200px;
+    margin-left: 200px;
+    width:250px;
+    height:250px;
+    position: relative;
+    animation: cubeRotation 15s  linear infinite alternate;
+    transform-style:preserve-3d ;
+   
+}
+.skillCube{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgb(0,0,0);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0.7;
+
+
+}
+.skillsNames > img {
+    width: inherit;
+    height: inherit;
+
+}
+.cubeFace1{
+    transform:translate3d(0,0,150px) ;
+}
+.cubeFace2{
+    transform:rotateY(180deg) translate3d(0,0,150px);
+}
+.cubeFace3{
+    transform:rotateY(-90deg) translate3d(0,0,150px) ;
+}
+.cubeFace4{
+    transform:rotateY(90deg) translate3d(0,0,150px) ;
+}
+.cubeFace5{
+    transform:rotateX(90deg) translate3d(0,0,150px) ;
+}
+.cubeFace6{
+    transform:rotateX(-90deg) translate3d(0,0,150px) ;
+}
+
+@keyframes cubeRotation{
+    to{
+        transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
+    }
+
+}
+.contact{
+    background-color: #5DADE2;
+}
+.servicesContainer {
+    font-weight: bold;
+    color: #5DADE2;
+    text-align: center; /* Center align the text within the container */
+  }
+  
+  .servicesList {
+    list-style-type: disc;
+    margin-top: 100px;
+    padding-left: 20px;
+    text-align: left; /* Align the list items to the left */
+  }
+  
+  .servicesList li {
+    font-size: 0.7em; /* Adjust this value to make the font size smaller */
+    margin-bottom: 10px;
+  }
+  

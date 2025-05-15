@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.plane{
+    margin-top: -5px;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #060606;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+#cards {
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  padding-inline: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card {
+  min-width: 200px;
+  height: 350px;
+  flex: 1 1 250px;
+  background-color: rgb(66, 120, 228);
+  border-radius: 12px;
+  position: relative;
+}
+
+#cards:hover > .card {
+  background: radial-gradient(
+    400px circle at 
+    var(--mouse-x) var(--mouse-y),
+    hsl(var(--color) / 1),
+    rgba(255, 255, 255, 0.12) 40%
+  );
+}
+
+.card-content {
+  position: absolute;
+  inset: 1px;
+  background-color: #5DADE2;
+  border-radius: inherit;
+}
+
+.card:nth-child(1) {
+    --color: 0 0% 100%; /* Bright White */
+  }
+  
+  .card:nth-child(2) {
+    --color: 0 0% 100%; /* Bright White */
+  }
+  
+  .card:nth-child(3) {
+    --color: 0 0% 100%; /* Bright White */
+  }
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y),
+    hsl(var(--color) / 0.35),
+    transparent 40%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  z-index: 2;
+}
+
+#cards:hover > .card::before {
+  opacity: 1;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.card-content > i {
+  font-size: 10rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.card-content > p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.card-content > button {
+  width: 90%;
+  padding-block: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+.card-content > button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
