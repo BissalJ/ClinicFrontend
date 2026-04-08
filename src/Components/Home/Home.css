@@ -1,104 +1,241 @@
-
-.homeCanvas{
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-}
-
-.homeContainer{
-    transform: translateY(-10px);
-    background-color: white;
-    border-radius: 0 0 150px 150px;
-    height: 50vh;
-    z-index: 1;
-}
-.homeSkills {
-    height: 900px;
-    background-color: white;
-    padding: 150px;
-    position: relative;
-    box-sizing: border-box;
-    perspective: 450px;
-    display: flex;
+.home {
+    width: 100%;
     overflow-x: hidden;
-  }
-.servicesContainer > h3{
-    text-align: center;
-    color: black;
-    margin-bottom: 4vmax;
-    font-size: 4vmax;
+    background: #fff;
 }
 
-.homeCubeSkills{
-    margin-top: 200px;
-    margin-left: 200px;
-    width:250px;
-    height:250px;
-    position: relative;
-    animation: cubeRotation 15s  linear infinite alternate;
-    transform-style:preserve-3d ;
-   
+.heroSection {
+    width: 100%;
+    background: white;
 }
-.skillCube{
+
+.heroCanvasWrap {
+    position: relative;
+    min-height: 68vh;
+    overflow: hidden;
+}
+
+.homeCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.homeContainer {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1240px);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.heroCanvasWrap .homeContainer {
+    min-height: 68vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 10px rgb(0,0,0);
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    opacity: 0.7;
-
-
-}
-.skillsNames > img {
-    width: inherit;
-    height: inherit;
-
-}
-.cubeFace1{
-    transform:translate3d(0,0,150px) ;
-}
-.cubeFace2{
-    transform:rotateY(180deg) translate3d(0,0,150px);
-}
-.cubeFace3{
-    transform:rotateY(-90deg) translate3d(0,0,150px) ;
-}
-.cubeFace4{
-    transform:rotateY(90deg) translate3d(0,0,150px) ;
-}
-.cubeFace5{
-    transform:rotateX(90deg) translate3d(0,0,150px) ;
-}
-.cubeFace6{
-    transform:rotateX(-90deg) translate3d(0,0,150px) ;
 }
 
-@keyframes cubeRotation{
-    to{
-        transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
-    }
-
+.heroHeading {
+    width: 100%;
+    padding: 50px 32px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0);
+    text-align: left;
 }
-.contact{
+
+.heroTag,
+.servicesTag {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(93, 173, 226, 0.14), rgba(46, 134, 193, 0.22));
+    color: #2e86c1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.heroHeading h1,
+.servicesTitleBlock h2 {
+    color: #2e86c1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.06;
+    text-shadow: 0 10px 24px rgba(93, 173, 226, 0.18);
+}
+
+.heroHeading h1 {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    margin-bottom: 14px;
+}
+
+.heroHeading p,
+.servicesTitleBlock p {
+    color: #5b6b7a;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.heroCardsWrap {
+    position: relative;
+    z-index: 1;
+    margin-top: -48px;
+    padding-bottom: 24px;
+}
+
+.heroCardsWrap .homeContainer {
+    padding-top: 0;
+}
+
+.homeSkills {
+    width: 100%;
+    background-color: white;
+    padding: 10px 0 70px;
+    position: relative;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.servicesContainer {
+    width: min(100%, 1240px);
+    margin: 0 auto;
+    padding: 50px 24px;
+    color: #5DADE2;
+    text-align: center;
+}
+
+.servicesTitleBlock {
+    width: min(100%, 820px);
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.servicesTitleBlock h2 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    margin-bottom: 12px;
+}
+
+.servicesTitleBlock p {
+    max-width: 620px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.servicesList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.contact {
+    width: 100%;
     background-color: #5DADE2;
 }
-.servicesContainer {
-    font-weight: bold;
-    color: #5DADE2;
-    text-align: center; /* Center align the text within the container */
+
+.service-card:hover {
+  transform: translateX(10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.flip-card {
+  width: 250px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front {
+  background: #f5f5f5;
+}
+
+.flip-card-back {
+  background: #5DADE2;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.flip-card-front i {
+  font-size: 28px;
+  color: #007bff;
+}
+
+.flip-card-back p {
+  font-size: 14px;
+  padding: 0 15px;
+  text-align: center;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+@media (max-width: 900px) {
+  .heroCanvasWrap {
+    min-height: 58vh;
   }
-  
-  .servicesList {
-    list-style-type: disc;
-    margin-top: 100px;
-    padding-left: 20px;
-    text-align: left; /* Align the list items to the left */
+
+  .heroCanvasWrap .homeContainer {
+    min-height: 58vh;
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 36px;
   }
-  
-  .servicesList li {
-    font-size: 0.7em; /* Adjust this value to make the font size smaller */
-    margin-bottom: 10px;
+
+  .heroHeading {
+    width: 100%;
+    padding: 24px;
   }
-  
+
+  .heroCardsWrap {
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesContainer {
+    padding: 30px 18px;
+  }
+
+  .heroCardsWrap {
+    margin-top: 0;
+    padding-top: 18px;
+  }
+}

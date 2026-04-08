@@ -29,10 +29,14 @@
         }
 
         .main-section-header h2 {
-            color: #FFF;
-            font-weight: bold;
-            font-size: 3em;
-            margin-bottom: 20px;
+            color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  line-height: 1.08;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 0 10px 24px rgba(93, 173, 226, 0.18);
         }
 
         .main-row {
@@ -44,6 +48,8 @@
 
         .contact-info-section {
             width: 50%;
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(93, 173, 226, 0.14), rgba(46, 134, 193, 0.22));
         }
 
         .contact-info-item {
@@ -68,6 +74,7 @@
 
         .contact-form-section {
             background-color: #fff;
+            border-radius: 30px;
             padding: 40px;
             width: 45%;
             padding-bottom: 20px;

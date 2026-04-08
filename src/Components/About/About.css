@@ -1,0 +1,347 @@
+.aboutPage {
+  width: 100%;
+  overflow-x: hidden;
+  color: #1f2d3d;
+  background:
+    radial-gradient(circle at top left, rgba(93, 173, 226, 0.16), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbff 52%, #eef7ff 100%);
+}
+
+.aboutContainer {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.aboutHero,
+.aboutStorySection,
+.aboutValuesSection,
+.aboutCtaSection {
+  padding: 86px 0;
+}
+
+.aboutHeroGrid,
+.aboutValuesLayout {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(300px, 0.9fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.aboutTag,
+.aboutVisualBadge,
+.aboutMiniTag {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(93, 173, 226, 0.14), rgba(46, 134, 193, 0.22));
+  color: #2e86c1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aboutMiniTag {
+  font-size: 0.78rem;
+  margin-bottom: 18px;
+}
+
+.aboutHeroCopy h1,
+.aboutSectionHeading h2,
+.aboutValuesCard h2,
+.aboutCtaCard h2 {
+  color: #2e86c1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.08;
+  text-shadow: 0 10px 24px rgba(93, 173, 226, 0.18);
+}
+
+.aboutHeroCopy h1 {
+  font-size: clamp(2.7rem, 5vw, 4.3rem);
+  margin-bottom: 16px;
+}
+
+.aboutHeroCopy p,
+.aboutSectionHeading p,
+.aboutValuesCard p,
+.aboutChecklistItem p,
+.aboutCtaCard p,
+.aboutVisualCard p,
+.aboutEducationCard p,
+.aboutSkillCard p,
+.aboutInterestCard p,
+.aboutBulletItem p {
+  color: #5b6b7a;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.aboutHeroStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.aboutStatCard,
+.aboutVisualCard,
+.aboutAccentCard,
+.aboutValuesCard,
+.aboutChecklistItem,
+.aboutCtaCard,
+.aboutEducationCard,
+.aboutSkillCard,
+.aboutInterestCard {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(93, 173, 226, 0.15);
+  box-shadow: 0 22px 55px rgba(46, 134, 193, 0.12);
+}
+
+.aboutStatCard {
+  padding: 18px;
+}
+
+.aboutStatCard strong,
+.aboutEducationCard strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #2e86c1;
+  font-size: 1.2rem;
+}
+
+.aboutStatCard span,
+.aboutAccentCard span {
+  color: #5b6b7a;
+  line-height: 1.55;
+}
+
+.aboutHeroVisual {
+  display: grid;
+  gap: 20px;
+}
+
+.aboutVisualCard {
+  padding: 34px 30px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top right, rgba(93, 173, 226, 0.2), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(239, 247, 255, 0.95) 100%);
+}
+
+.aboutVisualCard h2,
+.aboutEducationCard h3,
+.aboutSkillCard h3,
+.aboutInterestCard h3 {
+  color: #1f2d3d;
+  font-size: clamp(1.35rem, 2vw, 2.1rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.aboutAccentCard {
+  padding: 20px 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aboutAccentCard span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(93, 173, 226, 0.1), rgba(46, 134, 193, 0.18));
+  color: #2e86c1;
+  font-weight: 600;
+  font-size: 0.93rem;
+}
+
+.aboutContactCard span {
+  flex: 1 1 100%;
+}
+
+.aboutSectionHeading {
+  width: min(100%, 820px);
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.aboutCompactHeading {
+  margin-bottom: 28px;
+}
+
+.aboutSectionHeading h2,
+.aboutValuesCard h2,
+.aboutCtaCard h2 {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  margin-bottom: 14px;
+}
+
+.aboutEducationGrid,
+.aboutSkillsGrid,
+.aboutInterestsGrid {
+  display: grid;
+  gap: 22px;
+}
+
+.aboutEducationGrid,
+.aboutInterestsGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.aboutSkillsGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.aboutEducationCard,
+.aboutSkillCard,
+.aboutInterestCard,
+.aboutValuesCard,
+.aboutCtaCard {
+  padding: 32px 28px;
+}
+
+.aboutBulletList {
+  display: grid;
+  gap: 14px;
+}
+
+.aboutBulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.aboutBulletDot {
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #5DADE2, #2e86c1);
+}
+
+.aboutValuesSection {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(93, 173, 226, 0.08));
+}
+
+.aboutChecklist {
+  display: grid;
+  gap: 16px;
+}
+
+.aboutChecklistItem {
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.aboutChecklistIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #5DADE2, #2e86c1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.aboutCtaCard {
+  text-align: center;
+}
+
+.aboutAchievementCard {
+  margin-top: 28px;
+}
+
+.aboutCtaActions {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.aboutPrimaryAction,
+.aboutSecondaryAction {
+  min-width: 190px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aboutPrimaryAction {
+  background: linear-gradient(135deg, #5DADE2, #2e86c1);
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(46, 134, 193, 0.22);
+}
+
+.aboutSecondaryAction {
+  background: #fff;
+  border: 1px solid rgba(93, 173, 226, 0.24);
+  color: #2e86c1;
+}
+
+.aboutPrimaryAction:hover,
+.aboutSecondaryAction:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .aboutHeroGrid,
+  .aboutValuesLayout,
+  .aboutEducationGrid,
+  .aboutSkillsGrid,
+  .aboutInterestsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutHeroStats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutHero,
+  .aboutStorySection,
+  .aboutValuesSection,
+  .aboutCtaSection {
+    padding: 68px 0;
+  }
+
+  .aboutContainer {
+    padding: 0 16px;
+  }
+
+  .aboutHeroStats {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutVisualCard,
+  .aboutEducationCard,
+  .aboutSkillCard,
+  .aboutInterestCard,
+  .aboutValuesCard,
+  .aboutChecklistItem,
+  .aboutCtaCard {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .aboutAccentCard {
+    padding: 18px;
+  }
+}

@@ -21,7 +21,7 @@ const Header = () => {
     link4Text="Contact"
     link1Url="/"
     link2Url="/about"
-    link3Url="/appointment"
+    link3Url="/#appointment-section"
     link4Url="/contact"
     link1ColorHover="white"
     link1Color="#ECF0F1"

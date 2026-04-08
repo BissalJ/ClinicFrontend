@@ -3,11 +3,14 @@ import './Plane.css';
 
 const Plane = () => {
     useEffect(() => {
-
         const cards = Array.from(document.querySelectorAll(".card"));
         const cardsContainer = document.querySelector("#cards");
 
-        cardsContainer.addEventListener("mousemove", (e) => {
+        if (!cardsContainer) {
+            return undefined;
+        }
+
+        const handleMouseMove = (e) => {
             for (const card of cards) {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -16,9 +19,22 @@ const Plane = () => {
                 card.style.setProperty("--mouse-x", `${x}px`);
                 card.style.setProperty("--mouse-y", `${y}px`);
             }
-        });
+        };
 
-    });
+        cardsContainer.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            cardsContainer.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, []);
+
+    const scrollToAppointment = () => {
+        const appointmentSection = document.getElementById('appointment-section');
+
+        if (appointmentSection) {
+            appointmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     return (
         <div className='plane'>
@@ -39,7 +55,7 @@ const Plane = () => {
                     <div className="card-content">
                         <i className='fas fa-calendar-alt'></i>
                         <h2>Appointment</h2>
-                        <button href="#">
+                        <button type="button" onClick={scrollToAppointment}>
                             <i className="fa-solid fa-link"></i>
                             <span> Click here</span>
                         </button>

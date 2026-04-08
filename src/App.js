@@ -7,6 +7,7 @@ import {
   Route
 } from "react-router-dom";
 import Header from './Components/Header/Header';
+import About from './Components/About/About';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Header/>
       <Routes>
       <Route exact path="/" element={<Home/>}/>
+      <Route exact path="/about" element={<About/>}/>
       </Routes>
     </Router>
     
