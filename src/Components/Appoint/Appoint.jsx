@@ -17,6 +17,31 @@ const timeSlots = [
   '05:00 PM',
 ];
 
+const RotatingAppointmentCube = () => (
+  <div className='cubeCard appointmentCubePanel'>
+    <div className='appointCubeSkills'>
+      <div className='skillCube cubeFace1'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 1"></img>
+      </div>
+      <div className='skillCube cubeFace2'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 2"></img>
+      </div>
+      <div className='skillCube cubeFace3'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 3"></img>
+      </div>
+      <div className='skillCube cubeFace4'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 4"></img>
+      </div>
+      <div className='skillCube cubeFace5'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 5"></img>
+      </div>
+      <div className='skillCube cubeFace6'>
+        <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 6"></img>
+      </div>
+    </div>
+  </div>
+);
+
 export const Appoint = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
@@ -112,52 +137,6 @@ export const Appoint = () => {
       </div>
 
       <div className='appointmentLayout'>
-        <div className='appointmentShowcase'>
-          <div className='appointmentCopy'>
-            <span className='appointmentBadge'>Simple and Reassuring</span>
-            <h3>Everything you need to schedule with confidence</h3>
-            <p>We made the booking experience calmer and clearer, with live slot availability so reserved times are instantly marked and protected from double booking.</p>
-          </div>
-
-          <div className='cubeCard'>
-            <div className='appointCubeSkills'>
-              <div className='skillCube cubeFace1'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 1"></img>
-              </div>
-              <div className='skillCube cubeFace2'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 2"></img>
-              </div>
-              <div className='skillCube cubeFace3'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 3"></img>
-              </div>
-              <div className='skillCube cubeFace4'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 4"></img>
-              </div>
-              <div className='skillCube cubeFace5'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 5"></img>
-              </div>
-              <div className='skillCube cubeFace6'>
-                <img src="https://i.pinimg.com/564x/25/94/b9/2594b93a05876942bc889c46443bd9a8.jpg" alt="Clinic visual 6"></img>
-              </div>
-            </div>
-          </div>
-
-          <div className='appointmentHighlights'>
-            <div className='appointmentHighlightCard'>
-              <strong>Live reservations</strong>
-              <span>Booked times are removed from active selection.</span>
-            </div>
-            <div className='appointmentHighlightCard'>
-              <strong>Protected slots</strong>
-              <span>The backend blocks duplicate bookings for the same date and time.</span>
-            </div>
-            <div className='appointmentHighlightCard'>
-              <strong>Clear status</strong>
-              <span>See how many times remain before you submit your request.</span>
-            </div>
-          </div>
-        </div>
-
         <div className='bookingPanel'>
           <div className='calendarCard'>
             <div className='panelHeader'>
@@ -170,66 +149,70 @@ export const Appoint = () => {
               </p>
             </div>
 
-            <div className='bookingPicker'>
-              <div className='pickerBlock'>
-                <label htmlFor='appointment-date'>Preferred date</label>
-                <input
-                  id='appointment-date'
-                  type='date'
-                  min={minDate}
-                  value={selectedDate}
-                  onChange={(event) => {
-                    setSelectedDate(event.target.value);
-                    setSelectedTime('');
-                  }}
-                />
-              </div>
-
-              <div className='availabilitySummary'>
-                <div className='availabilitySummaryCard'>
-                  <strong>{selectedDate ? formattedDate : 'Select a date'}</strong>
-                  <span>
-                    {selectedDate
-                      ? `${availableCount} of ${timeSlots.length} slots available`
-                      : 'Availability updates after you choose a date.'}
-                  </span>
+            <div className='slotSelectionLayout'>
+              <div className='bookingPicker'>
+                <div className='pickerBlock'>
+                  <label htmlFor='appointment-date'>Preferred date</label>
+                  <input
+                    id='appointment-date'
+                    type='date'
+                    min={minDate}
+                    value={selectedDate}
+                    onChange={(event) => {
+                      setSelectedDate(event.target.value);
+                      setSelectedTime('');
+                    }}
+                  />
                 </div>
 
-                <div className='availabilityLegend'>
-                  <span className='legendPill available'>Available</span>
-                  <span className='legendPill selected'>Selected</span>
-                  <span className='legendPill booked'>Booked</span>
+                <div className='availabilitySummary'>
+                  <div className='availabilitySummaryCard'>
+                    <strong>{selectedDate ? formattedDate : 'Select a date'}</strong>
+                    <span>
+                      {selectedDate
+                        ? `${availableCount} of ${timeSlots.length} slots available`
+                        : 'Availability updates after you choose a date.'}
+                    </span>
+                  </div>
+
+                  <div className='availabilityLegend'>
+                    <span className='legendPill available'>Available</span>
+                    <span className='legendPill selected'>Selected</span>
+                    <span className='legendPill booked'>Booked</span>
+                  </div>
+                </div>
+
+                {availabilityError && <p className='availabilityMessage error'>{availabilityError}</p>}
+                {isLoadingSlots && <p className='availabilityMessage'>Loading reserved slots...</p>}
+                {!isLoadingSlots && selectedDate && availableCount === 0 && (
+                  <p className='availabilityMessage full'>All slots are booked for this date. Please choose another day.</p>
+                )}
+
+                <div className='pickerBlock'>
+                  <label>Preferred time</label>
+                  <div className='timeSlotGrid'>
+                    {timeSlots.map((slot) => {
+                      const isBooked = bookedSlots.includes(slot);
+                      const isActive = selectedTime === slot;
+
+                      return (
+                        <button
+                          key={slot}
+                          type='button'
+                          disabled={!selectedDate || isLoadingSlots || isBooked}
+                          className={`timeSlotButton ${isActive ? 'active' : ''} ${isBooked ? 'booked' : ''}`}
+                          onClick={() => setSelectedTime(slot)}
+                        >
+                          <span>{slot}</span>
+                          <small>{isBooked ? 'Reserved' : isActive ? 'Selected' : 'Open'}</small>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
-              {availabilityError && <p className='availabilityMessage error'>{availabilityError}</p>}
-              {isLoadingSlots && <p className='availabilityMessage'>Loading reserved slots...</p>}
-              {!isLoadingSlots && selectedDate && availableCount === 0 && (
-                <p className='availabilityMessage full'>All slots are booked for this date. Please choose another day.</p>
-              )}
-
-              <div className='pickerBlock'>
-                <label>Preferred time</label>
-                <div className='timeSlotGrid'>
-                  {timeSlots.map((slot) => {
-                    const isBooked = bookedSlots.includes(slot);
-                    const isActive = selectedTime === slot;
-
-                    return (
-                      <button
-                        key={slot}
-                        type='button'
-                        disabled={!selectedDate || isLoadingSlots || isBooked}
-                        className={`timeSlotButton ${isActive ? 'active' : ''} ${isBooked ? 'booked' : ''}`}
-                        onClick={() => setSelectedTime(slot)}
-                      >
-                        <span>{slot}</span>
-                        <small>{isBooked ? 'Reserved' : isActive ? 'Selected' : 'Open'}</small>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+              <RotatingAppointmentCube />
             </div>
           </div>
 

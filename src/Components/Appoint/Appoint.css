@@ -55,13 +55,9 @@
 .appointmentLayout {
   width: min(100%, 1220px);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(320px, 1fr);
-  gap: 28px;
-  align-items: start;
+  display: block;
 }
 
-.appointmentShowcase,
 .calendarCard,
 .registerCard {
   border-radius: 30px;
@@ -70,16 +66,6 @@
   box-shadow: 0 22px 55px rgba(46, 134, 193, 0.12);
 }
 
-.appointmentShowcase {
-  padding: 34px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  position: sticky;
-  top: 24px;
-}
-
-.appointmentCopy h3,
 .panelHeader h3 {
   color: #1f2d3d;
   font-size: 1.9rem;
@@ -87,7 +73,6 @@
   margin-bottom: 12px;
 }
 
-.appointmentCopy p,
 .panelHeader p {
   color: #5b6b7a;
   line-height: 1.7;
@@ -96,7 +81,7 @@
 
 .cubeCard {
   position: relative;
-  min-height: 320px;
+  min-height: 100%;
   display: grid;
   place-items: center;
   border-radius: 26px;
@@ -124,6 +109,11 @@
   height: 150px;
   bottom: -40px;
   right: -30px;
+}
+
+.appointmentCubePanel {
+  align-self: stretch;
+  min-height: 360px;
 }
 
 .appointCubeSkills {
@@ -185,31 +175,6 @@
   }
 }
 
-.appointmentHighlights {
-  display: grid;
-  gap: 14px;
-}
-
-.appointmentHighlightCard {
-  padding: 18px 20px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  border: 1px solid rgba(93, 173, 226, 0.14);
-}
-
-.appointmentHighlightCard strong {
-  display: block;
-  color: #2e86c1;
-  margin-bottom: 6px;
-  font-size: 1rem;
-}
-
-.appointmentHighlightCard span {
-  color: #5b6b7a;
-  font-size: 0.94rem;
-  line-height: 1.5;
-}
-
 .bookingPanel {
   display: grid;
   gap: 24px;
@@ -230,6 +195,13 @@
 
 .panelHeader h3 {
   font-size: 1.5rem;
+}
+
+.slotSelectionLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 26px;
+  align-items: stretch;
 }
 
 .bookingPicker {
@@ -396,12 +368,8 @@
 }
 
 @media (max-width: 1024px) {
-  .appointmentLayout {
+  .slotSelectionLayout {
     grid-template-columns: 1fr;
-  }
-
-  .appointmentShowcase {
-    position: static;
   }
 
   .timeSlotGrid {
@@ -415,8 +383,7 @@
   }
 
   .calendarCard,
-  .registerCard,
-  .appointmentShowcase {
+  .registerCard {
     padding: 22px;
     border-radius: 24px;
   }
@@ -427,7 +394,7 @@
   }
 
   .cubeCard {
-    min-height: 400px;
+    min-height: 320px;
   }
 
   .timeSlotGrid {
