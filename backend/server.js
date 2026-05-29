@@ -173,7 +173,11 @@ app.post('/send-appointment', async (req, res) => {
       text: `New appointment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nPreferred Time: ${preferredTime}\nAdditional Information: ${additionalInfo}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    try {
+  await transporter.sendMail(mailOptions);
+} catch (mailError) {
+  console.error("Email failed:", mailError.message);
+}
 
     res.status(201).json({
       message: 'Appointment reserved and email sent successfully.',
