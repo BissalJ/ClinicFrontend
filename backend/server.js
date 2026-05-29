@@ -109,92 +109,128 @@ app.get('/appointments/availability', async (req, res) => {
   }
 });
 
-app.post('/send-appointment', async (req, res) => {
-  const {
-    fullName,
-    email,
-    phone,
-    additionalInfo,
-    date,
-    preferredTime,
-  } = req.body;
+// app.post('/send-appointment', async (req, res) => {
+//   const {
+//     fullName,
+//     email,
+//     phone,
+//     additionalInfo,
+//     date,
+//     preferredTime,
+//   } = req.body;
 
-  if (!fullName || !email || !phone || !additionalInfo || !date || !preferredTime) {
-    return res.status(400).json({ error: 'All appointment fields are required' });
-  }
+//   if (!fullName || !email || !phone || !additionalInfo || !date || !preferredTime) {
+//     return res.status(400).json({ error: 'All appointment fields are required' });
+//   }
 
-  try {
-    const appointment = await Appointment.create({
-      fullName,
-      email,
-      phone,
-      additionalInfo,
-      date,
-      preferredTime,
-    });
+  // try {
+  //   const appointment = await Appointment.create({
+  //     fullName,
+  //     email,
+  //     phone,
+  //     additionalInfo,
+  //     date,
+  //     preferredTime,
+  //   });
 
-    console.log("EMAIL:", process.env.EMAIL);
-    console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
+//     console.log("EMAIL:", process.env.EMAIL);
+//     console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
 
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-          user: process.env.EMAIL,
-          pass: process.env.PASSWORD,
-        },
-        family: 4,
-      });
-
-
-    transporter.verify((error, success) => {
-  if (error) {
-    console.log("SMTP Verify Error:", error);
-  } else {
-    console.log("SMTP Ready");
-  }
-});
+//     const transporter = nodemailer.createTransport({
+//         host: "smtp.gmail.com",
+//         port: 587,
+//         secure: false,
+//         requireTLS: true,
+//         auth: {
+//           user: process.env.EMAIL,
+//           pass: process.env.PASSWORD,
+//         },
+//         family: 4,
+//       });
 
 
+//     transporter.verify((error, success) => {
+//   if (error) {
+//     console.log("SMTP Verify Error:", error);
+//   } else {
+//     console.log("SMTP Ready");
+//   }
+// });
 
-    if (!transporter) {
-      return res.status(201).json({
-        message: 'Appointment reserved successfully. Configure EMAIL and PASSWORD to enable email notifications.',
-        appointmentId: appointment._id,
-      });
+
+
+//     if (!transporter) {
+//       return res.status(201).json({
+//         message: 'Appointment reserved successfully. Configure EMAIL and PASSWORD to enable email notifications.',
+//         appointmentId: appointment._id,
+//       });
+//     }
+
+//     const mailOptions = {
+//       from: process.env.EMAIL,
+//       to: process.env.EMAIL,
+//       subject: 'New Appointment Booking',
+//       text: `New appointment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nPreferred Time: ${preferredTime}\nAdditional Information: ${additionalInfo}`,
+//     };
+
+//     try {
+//   await transporter.sendMail(mailOptions);
+// } catch (mailError) {
+//   console.error("Email failed:", mailError.message);
+// }
+
+//     res.status(201).json({
+//       message: 'Appointment reserved and email sent successfully.',
+//       appointmentId: appointment._id,
+//     });
+//   } catch (error) {
+//     if (error?.code === 11000) {
+//       return res.status(409).json({ error: 'This slot has already been reserved. Please choose another time.' });
+//     }
+
+//     console.error(error);
+//     res.status(500).json({ error: 'Failed to save appointment' });
+//   }
+// });
+
+
+const transporter = createTransporter();
+
+if (transporter) {
+  transporter.verify((error) => {
+    if (error) {
+      console.log("SMTP Verify Error:", error.message);
+    } else {
+      console.log("SMTP Ready");
     }
+  });
 
-    const mailOptions = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
-      subject: 'New Appointment Booking',
-      text: `New appointment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nPreferred Time: ${preferredTime}\nAdditional Information: ${additionalInfo}`,
-    };
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: process.env.EMAIL,
+    subject: 'New Appointment Booking',
+    text: `New appointment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nPreferred Time: ${preferredTime}\nAdditional Information: ${additionalInfo}`,
+  };
 
-    try {
-  await transporter.sendMail(mailOptions);
-} catch (mailError) {
-  console.error("Email failed:", mailError.message);
+  // Fire-and-forget email
+  transporter.sendMail(mailOptions)
+    .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((mailError) => {
+      console.error("Email failed:", mailError.message);
+    });
 }
 
-    res.status(201).json({
-      message: 'Appointment reserved and email sent successfully.',
-      appointmentId: appointment._id,
-    });
-  } catch (error) {
-    if (error?.code === 11000) {
-      return res.status(409).json({ error: 'This slot has already been reserved. Please choose another time.' });
-    }
+// // Always return success immediately after saving appointment
+// return res.status(201).json({
+//   message: 'Appointment reserved successfully.',
+//   appointmentId: appointment._id,
+// });
 
-    console.error(error);
-    res.status(500).json({ error: 'Failed to save appointment' });
-  }
-});
 
-connectToDatabase().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-});
+// connectToDatabase().then(() => {
+//   app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// });
