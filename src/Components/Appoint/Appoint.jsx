@@ -4,7 +4,7 @@ import './Appoint.css';
 import 'tailwindcss/tailwind.css';
 import Register from '../Register/Register';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://medisync-awh9.onrender.com';
 
 const timeSlots = [
   '10:00 AM',

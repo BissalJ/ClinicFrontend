@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Register.css';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://medisync-awh9.onrender.com';
 
 const Register = ({
   selectedDate,
