@@ -136,7 +136,24 @@ app.post('/send-appointment', async (req, res) => {
     console.log("EMAIL:", process.env.EMAIL);
     console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
 
-    const transporter = createTransporter();
+    const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
+    transporter.verify((error, success) => {
+  if (error) {
+    console.log("SMTP Verify Error:", error);
+  } else {
+    console.log("SMTP Ready");
+  }
+});
+
+
 
     if (!transporter) {
       return res.status(201).json({
