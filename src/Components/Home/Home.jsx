@@ -103,7 +103,7 @@ scene.add(ambientLight);
           <div className='homeContainer'>
             <div className='heroHeading'>
               <span className='heroTag'>Care Starts Here</span>
-              <h1>Doctor Clinic</h1>
+              <h1>MediSync</h1>
               <p>Thoughtful care, timely support to feel calm, clear, and dependable.</p>
             </div>
           </div>
