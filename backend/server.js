@@ -149,12 +149,21 @@ app.post('/send-appointment', async (req, res) => {
       text: `New appointment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nDate: ${date}\nPreferred Time: ${preferredTime}\nAdditional Information: ${additionalInfo}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    try {
+  await transporter.sendMail(mailOptions);
 
-    res.status(201).json({
-      message: 'Appointment reserved and email sent successfully.',
-      appointmentId: appointment._id,
-    });
+  return res.status(201).json({
+    message: 'Appointment reserved and email sent successfully.',
+    appointmentId: appointment._id,
+  });
+} catch (mailError) {
+  console.error('Email failed:', mailError.message);
+
+  return res.status(201).json({
+    message: 'Appointment reserved successfully, but email notification failed.',
+    appointmentId: appointment._id,
+  });
+}
   } catch (error) {
     if (error?.code === 11000) {
       return res.status(409).json({ error: 'This slot has already been reserved. Please choose another time.' });
