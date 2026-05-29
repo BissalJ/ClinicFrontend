@@ -133,6 +133,9 @@ app.post('/send-appointment', async (req, res) => {
       preferredTime,
     });
 
+    console.log("EMAIL:", process.env.EMAIL);
+    console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
+
     const transporter = createTransporter();
 
     if (!transporter) {
